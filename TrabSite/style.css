@@ -1,0 +1,102 @@
+.fonte1 {
+    font-family: 'Pacifico', cursive;
+}
+
+.fonte2 {
+    /* font-family: 'Dongle', sans-serif; */
+}
+
+body {
+    font-family: sans-serif;
+    background-color: rgb(230, 255, 191);
+}
+
+header {
+    background-image: url(IMG/gradientbanner.png);
+    width: 105.6%;
+    margin-left: -5%;
+    margin-top: -5%;
+}
+
+
+nav {
+    margin-left: -5%;
+    width: 105.6%;
+    margin-top: -2%;
+    min-height: 55pt;
+    background-image: url(IMG/gradientbanner.png);
+}
+
+nav li {
+    float: left;
+    padding: 2%;
+    list-style: none;
+    font-size: 150%;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+}    
+
+nav a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+main {
+    background-color: rgb(230, 255, 191);
+}
+
+iframe {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: -12.75%;
+}
+
+footer {
+    float: left;
+    background-color: rgb(45, 98, 43);
+    margin-left: -5%;
+    width: 105.6%;
+    height: 10%;
+}
+
+footer li {
+    float: left;
+    list-style: none;
+    margin-left: 23%;
+    margin-top: -0.25%;
+}
+
+footer p {
+    text-align: center;
+}
+
+#destaques {
+    text-align: center;
+}
+
+#destaques p {
+    font-size: 260%;
+    margin-bottom: -0.25%;
+}
+
+#destaques figure {
+    float: left;
+    margin-left: 7%;
+    margin-bottom: 3.5%;
+    height: 20%;
+    width: 20%;
+}
+
+#destaques img {
+    border: solid 4pt rgb(82, 16, 16);
+    height: 125%;
+    width: 125%;
+}
+
+#destaques figcaption {
+    font-size: 120%;
+    margin-left: 25%;
+}
