@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+        <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap&family=Pacifico&display=swap" rel="stylesheet">
+        <title>Pedido</title>
+    </head>
+
+    <body>
+        <header>
+            <img src="IMG/placeholder.png" width="350" height="275" alt="logo">
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html" class="fonte2">HOME</a></li>
+                <li><a href="destaques.html" class="fonte2">PRODUTOS</a></li>
+                <!-- <li><a href="pagform.html" class="fonte2">PEDIDO</a></li> -->
+                <!-- <li><a href="pagdicas.html" class="fonte2">DICAS</a></li> -->
+                <li><a href="pagmaps.html" class="fonte2">SOBRE NÓS</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <div id="tabela">
+                <table class="fonte2">
+                    <caption class="fonte1">VALORES DE FRETE POR REGIÃO</caption>
+                    <thead>
+                        <tr>
+                            <td colspan="1"><b>REGIÃO</b></td>
+                            <td colspan="2"><b>VALORES</b></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1"></td>
+                            <td colspan="1"><b>TRANSPORTADORA SANTA FÉ</b></td>
+                            <td colspan="1"><b>TRANSPORTADORA ANÁPOLIS</b></td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>SUL</td>
+                            <td>50</td>
+                            <td>75</td>
+                        </tr>
+                        <tr>
+                            <td>SUDESTE</td>
+                            <td>75</td>
+                            <td>90</td>
+                        </tr>
+                        <tr>
+                            <td>CENTRO-OESTE</td>
+                            <td>85</td>
+                            <td>95</td>
+                        </tr>
+                        <tr>
+                            <td>NORDESTE</td>
+                            <td>100</td>
+                            <td>115</td>
+                        </tr>
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <td>NORTE</td>
+                            <td>120</td>
+                            <td>150</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div id="formulario">
+                <a><h1 class="fonte1">Dados para Efetuar seu Pedido</h1></a>
+                    <form class="fonte2">
+                        <fieldset>
+                        <legend>Dados do Cliente:</legend>
+                        <label for="a">Nome completo:</label><br>
+                        <input type="text" id="n1"><br>
+
+                        <label for="b">Digite seu celular</label><br>
+                        <input type="tel" name="telefone"><br>
+
+                        <label for="c">Email:</label><br>
+                        <input type="email" name="email"><br>
+
+                        <label for = "d">Digite o nome de sua rua:</label><br>
+                        <input type="text" name="num"><br>
+
+                        <label for="b">Insira o número de sua residência:</label><br>
+                        <input type="number" name="home"><br>
+
+                        <label for= "e">Data em que deseja receber seu pedido</label><br>
+                        <input type="date" name="receber"><br>
+
+                        <label for="s1">A entrega pode ser feita em qual parte do dia?</label><br>
+                        <input type="checkbox" name="so" value="Manhã">Manhã<br>
+                        <input type="checkbox" name="so" value="Tarde">Tarde<br>
+
+
+                        <fieldset>
+                            <legend>Informações do Pedido:</legend>
+                            <label for="s1">Forma de Pagamento:</label><br>
+                            <select name="dis">
+                            <option>Pix</option>
+                            <option>Boleto</option>
+                            <option>Cartão (Pagamento Virtual)</option>
+
+                            </select><br>
+                            <label for="s1">Parcelas</label><br>
+                                <input type="radio" name="time" value="1">1 <br>
+                                <input type="radio" name="time" value="2">2 <br>
+                                <input type="radio" name="time" value="3">3 <br>
+                                <input type="radio" name="time" value="4">4 <br>
+
+                        </fieldset>
+                    </fieldset>
+                    <input type = "submit" value = "Enviar"><br>
+                </form>
+            </div>
+        </main>
+
+        <footer>
+            <div id="text1">
+                <p>Conheça nossas redes socias:</p>
+            </div>
+
+            <ul>
+                <li><a href="https://facebook.com"><img src="IMG/fbicon.png" alt="logo do facebook" height="50" width="50"></a>
+                </li>
+                <li><a href="https://instagram.com"><img src="IMG/igicon.png" alt="logo do instagram" height="50"
+                            width="50"></a></li>
+                <li><a href="https://wa.me/53999999999"><img src="IMG/zapicon.png" alt="logo do zap" height="50" width="50"></a>
+                </li>
+            </ul>
+            <br>
+            <br>
+            <br>
+            <p>Desenvolvido por: Sarah Naomi & Gabriela Luceiro</p>
+        </footer>
+    </body>
+</html>

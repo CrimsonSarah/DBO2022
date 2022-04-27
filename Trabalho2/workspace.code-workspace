@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "trabalho",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "SARAH",
+		"liveServer.settings.port": 5501
+	}
+}
