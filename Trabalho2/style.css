@@ -119,6 +119,10 @@ footer p {
     margin-top: 3.5%;
 }
 
+.centralizeText {
+    text-align: center;
+}
+
 #destaques, #text1, #raça,
 #cuidar {
     text-align: center;
