@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Produtos</title>
+        <link rel="icon" type="image/png" href="IMG/favicon.png">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="CSS/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap&family=Pacifico&display=swap" rel="stylesheet">
+    </head>
+
+    <body class="bg-lightpink">
+        <header class="p-2 bg-banner1 text-center">
+            <div class="col-sm-2">
+                <img src="IMG/logo.png" alt="zuca store logo" class="img-fluid" height="200" width="200">
+            </div>
+        </header>
+
+        <nav class="navbar navbar-expand-sm bg-primarycolor font-2 fs-4">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="index.html" class="nav-link link-secondarycolor">HOME</a></li>
+                    <li class="nav-item"><a href="produtos.html" class="nav-link link-secondarycolor">PRODUTOS</a>
+                        <ul class="bg-primarycolor navbar-nav popup border border-4 border-deeppurple">
+                            <li class="nav-item"><a href="racoes.html" class="nav-link link-secondarycolor">RAÇÕES</a></li>
+                            <li class="nav-item"><a href="potes.html" class="nav-link link-secondarycolor">POTES</a></li>
+                            <li class="nav-item"><a href="banho.html" class="nav-link link-secondarycolor">BANHO</a></li>
+                            <li class="nav-item"><a href="coleiras.html" class="nav-link link-secondarycolor">COLEIRAS</a></li>
+                            <li class="nav-item"><a href="brinquedos.html" class="nav-link link-secondarycolor">BRINQUEDOS</a></li>
+                            <li class="nav-item"><a href="camas.html" class="nav-link link-secondarycolor">CAMAS</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="pedido.html" class="nav-link link-secondarycolor">PEDIDO</a></li>
+                    <li class="nav-item"><a href="dicas.html" class="nav-link link-secondarycolor">DICAS</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link link-secondarycolor">SOBRE NÓS</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="container m-5">
+            <table class="col-md-6 offset-md-3 font-2 text-center table-bordered mb-lg-5">
+                <caption class="font-1">Valores de Frete por Região</caption>
+                <thead class="border-deeppurple bg-aliceblue border border-3">
+                    <tr>
+                        <td colspan="1">REGIÃO</td>
+                        <td colspan="2">VALORES</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1"></td>
+                        <td colspan="1">TRANSPORTADORA SANTA FÉ</td>
+                        <td colspan="1">TRANSPORTADORA ANÁPOLIS</td>
+                    </tr>
+                </thead>
+
+                <tbody class="border-deeppurple bg-aliceblue border border-3">
+                    <tr>
+                        <td>SUL</td>
+                        <td>50</td>
+                        <td>75</td>
+                    </tr>
+                    <tr>
+                        <td>SUDESTE</td>
+                        <td>75</td>
+                        <td>90</td>
+                    </tr>
+                    <tr>
+                        <td>CENTRO-OESTE</td>
+                        <td>85</td>
+                        <td>95</td>
+                    </tr>
+                    <tr>
+                        <td>NORDESTE</td>
+                        <td>100</td>
+                        <td>115</td>
+                    </tr>
+                </tbody>
+
+                <tfoot class="border-deeppurple bg-aliceblue border border-3">
+                    <tr>
+                        <td>NORTE</td>
+                        <td>120</td>
+                        <td>150</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <form class="row container-fluid">
+                <fieldset class="col-3">
+                    <legend>Dados do Cliente:</legend>
+                    <label class="form-label" for="Nome">Nome completo:</label>
+                    <input class="mb-2 form-control" type="text" id="Nome">
+
+                    <label class="form-label" for="celular">Digite seu celular:</label>
+                    <input class="mb-2 form-control" type="tel" id="celular" name="telefone">
+
+                    <label class="form-label" for="Email">Email:</label>
+                    <input class="mb-2 form-control" type="email" id="Email" name="email">
+
+                    <label class="form-label" for = "rua">Digite o nome de sua rua:</label>
+                    <input class="mb-2 form-control" type="text" id="rua" name="num">
+
+                    <label class="form-label" for="residência">Insira o número de sua residência:</label>
+                    <input class="mb-2 form-control" type="number" id="residência" name="home">
+                </fieldset>
+
+                <fieldset class="col-3">
+                    <legend>Entrega:</legend>
+                    <label class="form-label">Região:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="região">
+                        <label class="form-check-label" >Sul</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="região">
+                        <label class="form-check-label" >Sudeste</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="região">
+                        <label class="form-check-label" >Centro-oeste</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="região">
+                        <label class="form-check-label" >Nordeste</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="região">
+                        <label class="form-check-label" >Norte</label>
+                    </div>
+
+                    <label class="form-label">Transportadora:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="transportadora" value="1">
+                        <label class="form-check-label" >Santa Fé</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="transportadora" value="2">
+                        <label class="form-check-label" >Anápolis</label>
+                    </div>
+
+                    <label class="form-label" for= "Data">Data em que deseja receber seu pedido</label>
+                    <input class="mb-2" type="date" id="Data" name="receber">
+
+                    <label class="form-label">A entrega pode ser feita em qual parte do dia?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="2" id="manha">
+                        <label class="form-check-label" for="manha">Manhã</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="1" id="tarde">
+                        <label class="form-check-label" for="tarde">Tarde</label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="col-3">
+                    <legend>Informações do Pedido:</legend>
+                    <label class="form-label" for="pagamento">Forma de Pagamento:</label>
+                    <select name="dis" id="pagamento" class="form-control">
+                        <option>Pix (CNPJ DA EMPRESA)</option>
+                        <option>Boleto (VIA EMAIL)</option>
+                    </select>
+
+                    <label class="form-label">Parcelas</label><br>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="parcelas" value="1">
+                        <label class="form-check-label">1</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="parcelas" value="2">
+                        <label class="form-check-label">2</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="parcelas" value="3">
+                        <label class="form-check-label">3</label>
+                    </div>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="parcelas" value="4">
+                        <label class="form-check-label">4</label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="col-3">
+                    <legend>Seu Pedido:</legend>
+                    <label for="pedido1" class="form-label">RAÇÕES:</label>
+                    <select name="RAÇÕES" id="pedido1" class="form-control">
+                        <option>Nenhum</option>
+                        <option>RAÇÃO 18KG CÃO ADULTO R$90,00</option>
+                        <option>RAÇÃO 15KG CÃO ADULTO R$55,00</option>
+                        <option>RAÇÃO 20KG CÃO ADULTO R$70,00</option>
+                        <option>RAÇÃO 15KG CÃO FILHOTE R$70,00</option>
+                        <option>RAÇÃO 18KG COM VITAMINAS CÃO FILHOTE R$50,00</option>
+                        <option>RAÇÃO 15KG MINI ADULTO R$60,00</option>
+                    </select>
+
+                    <label for="pedido2" class="form-label">POTES:</label>
+                    <select name="POTES" id="pedido2" class="form-control">
+                        <option>Nenhum</option>
+                        <option>POTE SIMPLES DECORADO PEQUENO R$10,00</option>
+                        <option>POTE MÉDIO AZUL INTELIGENTE R$20,00</option>
+                        <option>RECIPIENTE DE ALIMENTAÇÃO COM TIMER R$45,00</option>
+                        <option>POTINHO PARA VIAGEM R$30,00</option>
+                        <option>POTE COM RECIPIENTE PARA ÁGUA R$25,00</option>
+                        <option>2 POTES COM SUPORTE R$40,00</option>
+                    </select>
+
+                    <label for="pedido3" class="form-label">BANHO:</label>
+                    <select name="BANHO" id="pedido3" class="form-control">
+                        <option>Nenhum</option>
+                        <option>SHAMPOO 6X1 ALTA PROTEÇÃO R$17,00</option>
+                        <option>SHAMPOO MACIEZ E BRILHO R$25,00</option>
+                        <option>SHAMPOO ANTIBACTERIANO R$30,00</option>
+                        <option>KIT SHAMPOO + CONDICIONADOR R$50,00</option>
+                        <option>SHAMPOO CLAREADOR DE PELOS R$40,00</option>
+                        <option>SHAMPOO PARA PELOS ESCUROS R$35,00</option>
+                    </select>
+
+                    <label for="pedido4" class="form-label">COLEIRAS:</label>
+                    <select name="COLEIRAS" id="pedido4" class="form-control">
+                        <option>Nenhum</option>
+                        <option>COLEIRA SIMPLES REGULÁVEL R$15,00</option>
+                        <option>COLEIRA PEITORAL MÉDIA R$35,00</option>
+                        <option>COLEIRA PEITORAL PEQUENA R$28,00</option>
+                        <option>COLEIRA METALEIRO REGULÁVEL R$40,00</option>
+                        <option>COLEIRA REFORÇADA GRANDE R$50,00</option>
+                        <option>COLEIRA "OURO" PITBULL R$80,00</option>
+                     </select>
+
+                    <label for="pedido5" class="form-label">BRINQUEDOS:</label>
+                    <select name="BRINQUEDOS" id="pedido5" class="form-control">
+                        <option>Nenhum</option>
+                        <option>LIMPADOR DE DENTES R$30,00</option>
+                        <option>BOLA CRAVO MÉDIA EMBORRACHADA R$20,00</option>
+                        <option>KIT 4 BOLAS CRAVO COLORIDAS R$25,00</option>
+                        <option>KIT 3 MORDEDORES COLORIDOS R$15,00</option>
+                        <option>BOLA CRAVO PARA COLOCAÇÃO DE PETISCO R$10,00</option>
+                        <option>BRINQUEDO SONORO GALINHA AMARELA R$12,00</option>
+                    </select>
+
+                    <label for="pedido6" class="form-label">CAMAS:</label>
+                    <select name="CAMAS" id="pedido6" class="form-control">
+                        <option>Nenhum</option>
+                        <option>CAMA PEQUENA SIMPLES R$50,00</option>
+                        <option>CAMA PRINCESA PEQUENA R$95,00</option>
+                        <option>CAMA HEXAGONAL PEQUENA R$80,00</option>
+                        <option>TOCA DUPLA FACE MÉDIA R$100,00</option>
+                        <option>CAMA GRANDE ESTOFADA R$150,00</option>
+                        <option>CAMA COM COURO E ESTOFADO PEQUENA R$120,00</option>
+                    </select>
+                </fieldset>
+            </form>
+        </main>
+
+        <footer class="p-sm-1 bg-deeppurple text-muted text-center font-2">
+            <p class="col-12 mt-3 mb-1">Conheça nossas redes sociais:</p>
+            <img src="IMG/fbicon.png" alt="ícone do facebook" class="img-fluid mb-2" height="35" width="35">
+            <img src="IMG/zapicon.png" alt="ícone do whatsapp" class="img-fluid ms-3 me-3 mb-2" height="35" width="35">
+            <img src="IMG/igicon.png" alt="ícone do instagram" class="img-fluid mb-2" height="35" width="35">
+            <p class="col-12">Desenvolvido por Sarah Naomi & Gabriela Luceiro</p>
+        </footer>
+    </body>
+</html>
