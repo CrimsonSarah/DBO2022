@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+        <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+
+        <link rel="stylesheet" href="CSS/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap&family=Pacifico&display=swap" rel="stylesheet">
+        <title>Pedido</title>
+    </head>
+
+    <body>
+        <header>
+            <img src="IMG/banners/logo.png" width="350" height="275" alt="logo">
+        </header>
+
+        <nav class="fonte2">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="destaques.html">PRODUTOS</a>
+                    <ul id="popup">
+                        <li><a href="subracoes.html">RAÇÕES</a></li>
+                        <li><a href="subpotes.html">POTES</a></li>
+                        <li><a href="subshampoo.html">BANHO</a></li>
+                        <li><a href="subcoleira.html">COLEIRAS</a></li>
+                        <li><a href="subtoys.html">BRINQUEDOS</a></li>
+                        <li><a href="subcama.html">CAMAS</a></li>
+                    </ul>
+                </li>
+                <li><a href="pagform.html">PEDIDO</a></li>
+                <li><a href="pagdicas.html">DICAS</a></li>
+                <li><a href="pagmaps.html">SOBRE NÓS</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <div id="tabela">
+                <table class="fonte2">
+                    <caption class="fonte1">Valores de Frete por Região</caption>
+                    <thead>
+                        <tr>
+                            <td colspan="1"><b>REGIÃO</b></td>
+                            <td colspan="2"><b>VALORES</b></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1"></td>
+                            <td colspan="1"><b>TRANSPORTADORA SANTA FÉ</b></td>
+                            <td colspan="1"><b>TRANSPORTADORA ANÁPOLIS</b></td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>SUL</td>
+                            <td>50</td>
+                            <td>75</td>
+                        </tr>
+                        <tr>
+                            <td>SUDESTE</td>
+                            <td>75</td>
+                            <td>90</td>
+                        </tr>
+                        <tr>
+                            <td>CENTRO-OESTE</td>
+                            <td>85</td>
+                            <td>95</td>
+                        </tr>
+                        <tr>
+                            <td>NORDESTE</td>
+                            <td>100</td>
+                            <td>115</td>
+                        </tr>
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <td>NORTE</td>
+                            <td>120</td>
+                            <td>150</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <h1 class="fonte1 centralize">Dados para Efetuar seu Pedido</h1>
+            <div id="formulario">
+                <form class="fonte2">
+                    <fieldset>
+                        <legend>Dados do Cliente:</legend>
+                        <label for="a">Nome completo:</label><br>
+                        <input type="text" id="n1"><br>
+
+                        <label for="b">Digite seu celular</label><br>
+                        <input type="tel" name="telefone"><br>
+
+                        <label for="c">Email:</label><br>
+                        <input type="email" name="email"><br>
+
+                        <label for = "d">Digite o nome de sua rua:</label><br>
+                        <input type="text" name="num"><br>
+
+                        <label for="b">Insira o número de sua residência:</label><br>
+                        <input type="number" name="home"><br>
+                        Transporte:<br>
+                        <label for="s1">Região</label><br>
+                        <input type="radio" name="time" value="1">SUL<br>
+                        <input type="radio" name="time" value="2">SUDESTE<br>
+                        <input type="radio" name="time" value="3">CENTRO-OESTE<br>
+                        <input type="radio" name="time" value="4">NORDESTE<br>
+                        <input type="radio" name="time" value="4">NORTE<br>
+
+                        <label for="s1">Transportadora</label><br>
+                        <input type="radio" name="time" value="1">SANTA FÉ<br>
+                        <input type="radio" name="time" value="2">ANÁPOLIS<br>
+
+                        <label for= "e">Data em que deseja receber seu pedido</label><br>
+                        <input type="date" name="receber"><br>
+
+                        <label for="s1">A entrega pode ser feita em qual parte do dia?</label><br>
+                        <input type="checkbox" name="so" value="Manhã">Manhã<br>
+                        <input type="checkbox" name="so" value="Tarde">Tarde<br>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Informações do Pedido:</legend>
+                        <label for="s1">Forma de Pagamento:</label><br>
+                        CNPJ:  XX. XXX. XXX/0001-XX
+                        <br>
+                        <select name="dis">
+                        <option>Pix (CNPJ DA EMPRESA)</option>
+                        <option>Boleto (VIA EMAIL)</option>
+                        </select><br>
+                        <label for="s1">Parcelas</label><br>
+                            <input type="radio" name="time" value="1">1 <br>
+                            <input type="radio" name="time" value="2">2 <br>
+                            <input type="radio" name="time" value="3">3 <br>
+                            <input type="radio" name="time" value="4">4 <br>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Seu Pedido</legend>
+                        RAÇÕES:<br>
+                        <select name="RAÇÕES">
+                            <option>Nenhum</option>
+                            <option>RAÇÃO 18KG CÃO ADULTO R$90,00</option>
+                            <option>RAÇÃO 15KG CÃO ADULTO R$55,00</option>
+                            <option>RAÇÃO 20KG CÃO ADULTO R$70,00</option>
+                            <option>RAÇÃO 15KG CÃO FILHOTE R$70,00</option>
+                            <option>RAÇÃO 18KG COM VITAMINAS CÃO FILHOTE R$50,00</option>
+                            <option>RAÇÃO 15KG MINI ADULTO R$60,00</option>
+                        </select><br>
+                        <br>POTES:<br>
+                        <select name="POTES">
+                            <option>Nenhum</option>
+                            <option>POTE SIMPLES DECORADO PEQUENO R$10,00</option>
+                            <option>POTE MÉDIO AZUL INTELIGENTE R$20,00</option>
+                            <option>RECIPIENTE DE ALIMENTAÇÃO COM TIMER R$45,00</option>
+                            <option>POTINHO PARA VIAGEM R$30,00</option>
+                            <option>POTE COM RECIPIENTE PARA ÁGUA R$25,00</option>
+                            <option>2 POTES COM SUPORTE R$40,00</option>
+                        </select><br>
+                        <br>BANHO:<br>
+                        <select name="BANHO">
+                            <option>Nenhum</option>
+                            <option>SHAMPOO 6X1 ALTA PROTEÇÃO R$17,00</option>
+                            <option>SHAMPOO MACIEZ E BRILHO R$25,00</option>
+                            <option>SHAMPOO ANTIBACTERIANO R$30,00</option>
+                            <option>KIT SHAMPOO + CONDICIONADOR R$50,00</option>
+                            <option>SHAMPOO CLAREADOR DE PELOS R$40,00</option>
+                            <option>SHAMPOO PARA PELOS ESCUROS R$35,00</option>
+                        </select><br>
+                        <br>COLEIRAS:<br>
+                        <select name="COLEIRAS">
+                            <option>Nenhum</option>
+                            <option>COLEIRA SIMPLES REGULÁVEL R$15,00</option>
+                            <option>COLEIRA PEITORAL MÉDIA R$35,00</option>
+                            <option>COLEIRA PEITORAL PEQUENA R$28,00</option>
+                            <option>COLEIRA METALEIRO REGULÁVEL R$40,00</option>
+                            <option>COLEIRA REFORÇADA GRANDE R$50,00</option>
+                            <option>COLEIRA "OURO" PITBULL R$80,00</option>
+                        </select><br>
+                        <br>BRINQUEDOS:<br>
+                        <select name="BRINQUEDOS">
+                            <option>Nenhum</option>
+                            <option>LIMPADOR DE DENTES R$30,00</option>
+                            <option>BOLA CRAVO MÉDIA EMBORRACHADA R$20,00</option>
+                            <option>KIT 4 BOLAS CRAVO COLORIDAS R$25,00</option>
+                            <option>KIT 3 MORDEDORES COLORIDOS R$15,00</option>
+                            <option>BOLA CRAVO PARA COLOCAÇÃO DE PETISCO R$10,00</option>
+                            <option>BRINQUEDO SONORO GALINHA AMARELA R$12,00</option>
+                        </select><br>
+                        <br>CAMAS:<br>
+                        <select name="CAMAS">
+                            <option>Nenhum</option>
+                            <option>CAMA PEQUENA SIMPLES R$50,00</option>
+                            <option>CAMA PRINCESA PEQUENA R$95,00</option>
+                            <option>CAMA HEXAGONAL PEQUENA R$80,00</option>
+                            <option>TOCA DUPLA FACE MÉDIA R$100,00</option>
+                            <option>CAMA GRANDE ESTOFADA R$150,00</option>
+                            <option>CAMA COM COURO E ESTOFADO PEQUENA R$120,00</option>
+                        </select><br>
+                    </fieldset>
+                    <input type = "submit" value = "Enviar"><br>
+                </form>
+            </div>
+        </main>
+
+        <footer>
+            <p>Conheça nossas redes socias:</p>
+            <ul>
+                <li><a href="https://facebook.com"><img src="IMG/fbicon.png" alt="logo do facebook"></a></li>
+                <li><a href="https://instagram.com"><img src="IMG/igicon.png" alt="logo do instagram"></a></li>
+                <li><a href="https://wa.me/53999999999"><img src="IMG/zapicon.png" alt="logo do zap"></a></li>
+            </ul>
+            <p>Desenvolvido por: Sarah Naomi & Gabriela Luceiro</p>
+        </footer>
+    </body>
+</html>
