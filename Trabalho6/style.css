@@ -22,7 +22,7 @@ button {
 .main button {
     font-size: 150%;
     width: 60vw;
-    height: 20vh;
+    height: 30vh;
 }
 
 .panel {
@@ -34,7 +34,7 @@ button {
 
 .panel button {
     width: 30vw;
-    height: 10vh;
+    height: 15vh;
 }
 
 .crimsontext {
