@@ -1,0 +1,42 @@
+body {
+    background-color: black;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 135%;
+}
+
+button {
+    font-size: 105%;
+    font-weight: bold;
+    background-color: crimson;
+    border: 0.5vw solid crimson;
+}
+
+.main {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    margin-bottom: 10vh;
+}
+
+.main button {
+    font-size: 150%;
+    width: 60vw;
+    height: 20vh;
+}
+
+.panel {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.panel button {
+    width: 30vw;
+    height: 10vh;
+}
+
+.crimsontext {
+    color: crimson;
+}
