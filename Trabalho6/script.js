@@ -154,7 +154,8 @@ let clickupgrade = document.getElementById("clickUp");
 let main = document.getElementById("mainButton");
 
 //audio
-const clicksound = new Audio("SFX/click.wav");
+const clicksound = new Audio("SFX/click.mp3");
+const clickerrorsound = new Audio("SFX/clickerror.mp3");
 
 //funções
 function updateText (element, text) {
@@ -173,20 +174,22 @@ function income () {
 }
 
 function upgradeClick () {
-    clicksound.play();
     if (totalscore >= clickcost) {
+        clicksound.play();
         totalscore -= clickcost;
         clickcost = Math.ceil(clickcost * 1.125);
         clickvalue = Math.ceil(clickvalue * 1.11);
         updateText (main, totalscore);
         updateText (clickupgrade, "Upgrade Click" + "<br>" + "+" + clickvalue);
         updateText (clickcosttext, "Cost: " +  clickcost);
+    } else {
+        clickerrorsound.play();
     }
 }
 
 function upgradePassive () {
-    clicksound.play();
     if (totalscore >= passivecost) {
+        clicksound.play();
         if (passivevalue == 0) {
             totalscore -= passivecost;
             passivecost = Math.ceil(passivecost * 1.125);
@@ -202,6 +205,8 @@ function upgradePassive () {
             updateText (passiveupgrade, "Upgrade Income" + "<br>" + "+" + passivevalue);
             updateText (passivecosttext, "Cost: " +  passivecost);
         }
+    } else {
+        clickerrorsound.play();
     }
 }
 
