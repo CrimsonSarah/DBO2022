@@ -4,7 +4,7 @@
 let passivevalue = 0;
 let clickvalue = 1;
 let totalscore = 0;
-let timermin = 15;
+let timermin = 0;
 let timersec = 0;
 
 //custos
@@ -34,7 +34,7 @@ function updateText(element, text) {
 }
 
 function timer() {
-    if (timersec <= 60) {
+    if (timersec >= 60) {
         timermin += 1;
         timersec = 0;
     } else {
