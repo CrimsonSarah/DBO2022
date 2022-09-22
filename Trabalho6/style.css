@@ -12,10 +12,6 @@ button {
     border: 0.5vw solid crimson;
 }
 
-.disabled {
-    display: none !important;
-}
-
 .main {
     display: flex;
     flex-flow: column wrap;
@@ -44,6 +40,10 @@ button {
 
 .crimsontext {
     color: crimson;
+}
+
+.disabled {
+    display: none !important;
 }
 
 #speedrunmode {
