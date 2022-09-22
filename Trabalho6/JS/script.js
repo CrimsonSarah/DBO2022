@@ -15,7 +15,7 @@ function endlessMode () {
     document.getElementById("mainmenu").className = "main disabled";
     const endlessscript = document.createElement("script");
     endlessscript.src = "JS/endless.js";
-    document.querySelector("body").appendChild(speedrunscript);
+    document.querySelector("body").appendChild(endlessscript);
     document.getElementById("mainmenu").remove();
     document.getElementById("scene2").remove();
     menuscript.remove();
