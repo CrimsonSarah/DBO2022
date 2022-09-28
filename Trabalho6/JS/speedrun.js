@@ -26,6 +26,8 @@ const gnomed = new Audio("SFX/gnomed.mp3");
 const clicksound = new Audio("SFX/click.mp3");
 const clickerrorsound = new Audio("SFX/clickerror.mp3");
 
+//intervalos
+let gnomespawninterval;
 
 
 //FUNÇÕES
@@ -124,14 +126,20 @@ function gnomeButtonClick() {
 }
 
 function gnomeClick() {
+    const newsubpanel = document.createElement("div");
+    newsubpanel.className = "subpanel crimsontext";
+    document.querySelector(".buttons").appendChild(newsubpanel);
+
     document.getElementById("gnome").remove();
-    gnomebutton = document.createElement("button");
-    gnomebutton.id = "gnomeButton";
-    document.querySelector(".buttons").appendChild(gnomebutton);
-    gnomebutton.addEventListener("click", () => { gnomeButtonClick() });
     const gnometext = document.createElement("p")
     gnometext.innerText = "⠀⠀⠀⠀⠀⠀";
-    document.querySelector(".texts").appendChild(gnometext);
+    newsubpanel.appendChild(gnometext);
+
+    gnomebutton = document.createElement("button");
+    gnomebutton.id = "gnomeButton";
+    newsubpanel.appendChild(gnomebutton);
+    gnomebutton.addEventListener("click", () => { gnomeButtonClick() });
+    
     setInterval("updateText(gnomebutton, 'Gamble with Gnome' + '<br>' + '±' + Math.ceil(totalscore/3))", 16.66);
 }
 
@@ -143,7 +151,7 @@ function spawnGnome() {
             document.getElementById("scene1").appendChild(gnome);
             gnome.addEventListener("click", () => { gnomeClick() });
         } else {
-            return;
+            clearInterval(gnomespawninterval);
         }
     } else {
         return;
@@ -162,4 +170,4 @@ passiveupgrade.addEventListener("click", () => { upgradePassive() });
 //aciona os intervalos
 setInterval("timer()", 1000);
 setInterval("income()", 1000);
-setInterval("spawnGnome()", 15000);
+gnomespawninterval = setInterval("spawnGnome()", 15000);

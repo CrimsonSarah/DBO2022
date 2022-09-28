@@ -42,6 +42,12 @@ button {
     height: 30vw;
 }
 
+.subpanel {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
 .crimsontext {
     color: crimson;
 }

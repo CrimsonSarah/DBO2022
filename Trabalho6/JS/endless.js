@@ -1,6 +1,7 @@
 //VARIÁVEIS
 
 //valores
+let ascensionbonus;
 let passivevalue;
 let clickvalue;
 let totalscore;
@@ -12,7 +13,9 @@ let passivecost;
 let clickcost;
 
 //booleans
+let ascensionspawned;
 let gnomespawned;
+let forcespawn;
 
 //elementos HTML
 const passivecosttext = document.getElementById("passiveCost");
@@ -21,19 +24,29 @@ const clickcosttext = document.getElementById("clickCost");
 const clickupgrade = document.getElementById("clickUp");
 const timertext = document.getElementById("timerText");
 const main = document.getElementById("mainButton");
+let ascensionbutton;
 let gnomebutton;
 let gnome;
 
 //audio
-const gnomed = new Audio("SFX/gnomed.mp3");
-const clicksound = new Audio("SFX/click.mp3");
 const clickerrorsound = new Audio("SFX/clickerror.mp3");
+const clicksound = new Audio("SFX/click.mp3");
+const gnomed = new Audio("SFX/gnomed.mp3");
 
+//intervalos
+let ascensionspawninterval;
+let gnomespawninterval;
 
 
 //RETORNAR VARIÁVEIS DO CACHE
 
 //valores
+if (!localStorage.getItem("ascensionbonus")) {
+    ascensionbonus = 1;
+} else {
+    ascensionbonus = parseInt(localStorage.getItem("ascensionbonus"));
+}
+
 if (!localStorage.getItem("passivevalue")) {
     passivevalue = 0;
 } else {
@@ -91,6 +104,18 @@ if (gnomespawned == true) {
     gnomeClick();
 }
 
+if (!localStorage.getItem("ascensionspawned")) {
+    ascensionspawned = false;
+} else {
+    ascensionspawned = (localStorage.getItem("ascensionspawned") === "true");
+}
+
+if (ascensionspawned == true) {
+    forcespawn = true;
+    spawnAscension();
+    forcespawn = false;
+}
+
 
 
 //FUNÇÕES
@@ -141,14 +166,14 @@ function upgradeClick() {
     if (totalscore >= clickcost) {
         clicksound.play();
         totalscore -= clickcost;
-        clickcost = Math.ceil(clickcost * 1.241);
-        clickvalue = Math.ceil(clickvalue * 1.19);
+        clickcost = Math.ceil(clickcost * 1.181);
+        clickvalue = Math.ceil(clickvalue * 1.089 * ascensionbonus);
         updateText(main, totalscore);
         updateText(clickupgrade, "Upgrade Click" + "<br>" + "+" + clickvalue);
         updateText(clickcosttext, "Cost: " + clickcost);
 
-        localStorage.setItem("clickcost", clickcost)
-        localStorage.setItem("clickvalue", clickvalue)
+        localStorage.setItem("clickcost", clickcost);
+        localStorage.setItem("clickvalue", clickvalue);
     } else {
         clickerrorsound.play();
     }
@@ -159,8 +184,8 @@ function upgradePassive() {
         clicksound.play();
         if (passivevalue == 0) {
             totalscore -= passivecost;
-            passivecost = Math.ceil(passivecost * 1.23);
-            passivevalue = 1;
+            passivecost = Math.ceil(passivecost * 1.2);
+            passivevalue = Math.ceil(1 * ascensionbonus);
             updateText(main, totalscore);
             updateText(passiveupgrade, "Upgrade Income" + "<br>" + "+" + passivevalue);
             updateText(passivecosttext, "Cost: " + passivecost);
@@ -169,8 +194,8 @@ function upgradePassive() {
             localStorage.setItem("passivevalue", passivevalue);
         } else {
             totalscore -= passivecost;
-            passivecost = Math.ceil(passivecost * 1.23);
-            passivevalue = Math.ceil(passivevalue * 1.242);
+            passivecost = Math.ceil(passivecost * 1.2);
+            passivevalue = Math.ceil(passivevalue * 1.142 * ascensionbonus);
             updateText(main, totalscore);
             updateText(passiveupgrade, "Upgrade Income" + "<br>" + "+" + passivevalue);
             updateText(passivecosttext, "Cost: " + passivecost);
@@ -184,7 +209,7 @@ function upgradePassive() {
 }
 
 function gnomeButtonClick() {
-    if (Math.ceil(Math.random() * 100) >= 67) {
+    if (Math.ceil(Math.random() * 100 * ascensionbonus) >= 79) {
         clicksound.play();
         totalscore += Math.ceil(totalscore / 3);
     } else {
@@ -195,16 +220,21 @@ function gnomeButtonClick() {
 }
 
 function gnomeClick() {
+    const newsubpanel = document.createElement("div");
+    newsubpanel.className = "subpanel crimsontext";
+    document.querySelector(".buttons").appendChild(newsubpanel);
+
     document.getElementById("gnome").remove();
-    gnomebutton = document.createElement("button");
-    gnomebutton.id = "gnomeButton";
-    document.querySelector(".buttons").appendChild(gnomebutton);
-    gnomebutton.addEventListener("click", () => { gnomeButtonClick() });
     const gnometext = document.createElement("p")
     gnometext.innerText = "⠀⠀⠀⠀⠀⠀";
-    document.querySelector(".texts").appendChild(gnometext);
-    setInterval("updateText(gnomebutton, 'Gamble with Gnome' + '<br>' + '±' + Math.ceil(totalscore/3))", 16.66);
+    newsubpanel.appendChild(gnometext);
 
+    gnomebutton = document.createElement("button");
+    gnomebutton.id = "gnomeButton";
+    newsubpanel.appendChild(gnomebutton);
+    gnomebutton.addEventListener("click", () => { gnomeButtonClick() });
+
+    setInterval("updateText(gnomebutton, 'Gamble with Gnome' + '<br>' + '±' + Math.ceil(totalscore/3))", 16.66);
     localStorage.setItem("gnomespawned", true);
 }
 
@@ -216,10 +246,63 @@ function spawnGnome() {
             document.getElementById("scene1").appendChild(gnome);
             gnome.addEventListener("click", () => { gnomeClick() });
         } else {
-            return;
+            clearInterval(gnomespawninterval);
         }
     } else {
         return;
+    }
+}
+
+function ascend() {
+    clicksound.play();
+
+    ascensionbonus += 0.1;
+    passivevalue = 0;
+    passivecost = 15;
+    clickvalue = Math.ceil(1 * ascensionbonus);
+    clickcost = 20;
+    totalscore = 0;
+
+    localStorage.setItem("ascensionbonus", ascensionbonus);
+    localStorage.setItem("passivevalue", passivevalue);
+    localStorage.setItem("passivecost", passivecost);
+    localStorage.setItem("clickvalue", clickvalue);
+    localStorage.setItem("clickcost", clickcost);
+    localStorage.setItem("totalscore", totalscore);
+
+    updateText(main, totalscore);
+    updateText(clickupgrade, "Upgrade Click" + "<br>" + "+" + clickvalue);
+    updateText(clickcosttext, "Cost: " + clickcost);
+    updateText(passiveupgrade, "Upgrade Income" + "<br>" + "+" + passivevalue);
+    updateText(passivecosttext, "Cost: " + passivecost);
+
+    document.querySelector(".ascensionpanel").remove();
+    ascensionspawninterval = setInterval("spawnAscension()", 1000);
+}
+
+function spawnAscension () {
+    if (!document.getElementById("ascensionButton")) {
+        if (totalscore >= 1e5 * ascensionbonus || forcespawn == true) {
+            if (ascensionspawninterval) {
+                clearInterval(ascensionspawninterval);
+            }
+    
+            const newsubpanel = document.createElement("div");
+            newsubpanel.className = "subpanel crimsontext ascensionpanel";
+            document.querySelector(".buttons").appendChild(newsubpanel);
+    
+            const ascensiontext = document.createElement("p")
+            ascensiontext.innerText = "Cost: EVERYTHING."
+            newsubpanel.appendChild(ascensiontext);
+    
+            ascensionbutton = document.createElement("button");
+            ascensionbutton.id = "ascensionButton";
+            newsubpanel.appendChild(ascensionbutton);
+            ascensionbutton.addEventListener("click", () => { ascend() });
+    
+            updateText(ascensionbutton, "Ascend");
+            localStorage.setItem("ascensionspawned", true);
+        }
     }
 }
 
@@ -257,4 +340,6 @@ if (timermin < 10) {
 //aciona os intervalos
 setInterval("timer()", 1000);
 setInterval("income()", 1000);
-setInterval("spawnGnome()", 15000);
+gnomespawninterval = setInterval("spawnGnome()", 15000);
+ascensionspawninterval = setInterval("spawnAscension()", 1000);
+
