@@ -30,7 +30,7 @@ let gnome;
 
 //audio
 const clickerrorsound = new Audio("SFX/clickerror.mp3");
-const ascensionsound = new Audio("SFX/ascencion.mp3");
+const ascensionsound = new Audio("SFX/ascension.mp3");
 const clicksound = new Audio("SFX/click.mp3");
 const gnomed = new Audio("SFX/gnomed.mp3");
 
@@ -267,6 +267,7 @@ function ascend() {
     localStorage.setItem("ascensionbonus", ascensionbonus);
     localStorage.setItem("passivevalue", passivevalue);
     localStorage.setItem("passivecost", passivecost);
+    localStorage.setItem("ascensionspawned", false);
     localStorage.setItem("clickvalue", clickvalue);
     localStorage.setItem("clickcost", clickcost);
     localStorage.setItem("totalscore", totalscore);
@@ -287,20 +288,20 @@ function spawnAscension () {
             if (ascensionspawninterval) {
                 clearInterval(ascensionspawninterval);
             }
-    
+
             const newsubpanel = document.createElement("div");
             newsubpanel.className = "subpanel crimsontext ascensionpanel";
             document.querySelector(".buttons").appendChild(newsubpanel);
-    
+
             const ascensiontext = document.createElement("p")
             ascensiontext.innerText = "Cost: EVERYTHING."
             newsubpanel.appendChild(ascensiontext);
-    
+
             ascensionbutton = document.createElement("button");
             ascensionbutton.id = "ascensionButton";
             newsubpanel.appendChild(ascensionbutton);
             ascensionbutton.addEventListener("click", () => { ascend() });
-    
+
             updateText(ascensionbutton, "Ascend");
             localStorage.setItem("ascensionspawned", true);
         }
