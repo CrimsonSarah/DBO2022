@@ -30,7 +30,7 @@ let gnome;
 
 //audio
 const clickerrorsound = new Audio("SFX/clickerror.mp3");
-const ascensionsound = new Audio("SFX/asencion.mp3");
+const ascensionsound = new Audio("SFX/ascencion.mp3");
 const clicksound = new Audio("SFX/click.mp3");
 const gnomed = new Audio("SFX/gnomed.mp3");
 
