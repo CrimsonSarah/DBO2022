@@ -52,6 +52,10 @@ button {
     color: crimson;
 }
 
+#languageButton {
+    position: absolute;
+}
+
 #speedrunmode {
     margin-bottom: 3vh;
 }

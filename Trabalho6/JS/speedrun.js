@@ -29,6 +29,21 @@ const clickerrorsound = new Audio("SFX/clickerror.mp3");
 //intervalos
 let gnomespawninterval;
 
+//textos
+text = [["Upgrade Click", "Cost: ", "Upgrade Income", "Gamble with Gnome", "Cost: EVERYTHING", "Ascend"], ["Melhorar Clique", "Custo: ", "Melhorar Renda", "Apostar com Gnomo", "Custo: TUDO", "Ascender"]];
+
+
+
+//RETORNAR VARIÁVEIS DO CACHE
+
+//valores
+if (!localStorage.getItem("language")) {
+    language = 0;
+} else {
+    language = parseInt(localStorage.getItem("language"))
+}
+
+
 
 //FUNÇÕES
 function updateText(element, text) {
@@ -132,15 +147,17 @@ function gnomeClick() {
 
     document.getElementById("gnome").remove();
     const gnometext = document.createElement("p")
-    gnometext.innerText = "⠀⠀⠀⠀⠀⠀";
+    gnometext.innerText = ".";
+    gnometext.style.color = "black";
     newsubpanel.appendChild(gnometext);
 
     gnomebutton = document.createElement("button");
     gnomebutton.id = "gnomeButton";
     newsubpanel.appendChild(gnomebutton);
     gnomebutton.addEventListener("click", () => { gnomeButtonClick() });
-    
-    setInterval("updateText(gnomebutton, 'Gamble with Gnome' + '<br>' + '±' + Math.ceil(totalscore/3))", 16.66);
+
+    setInterval("updateText(gnomebutton, text[language][3] + '<br>' + '±' + Math.ceil(totalscore/3))", 16.66);
+    localStorage.setItem("gnomespawned", true);
 }
 
 function spawnGnome() {
@@ -158,14 +175,40 @@ function spawnGnome() {
     }
 }
 
+function changeLanguage() {
+    language++
+    if (language >= languages.length) {
+        language = 0;
+    }
+    localStorage.setItem("language", language);
+
+    updateText(languagebutton, languages[language]);
+    updateText(clickupgrade, text[language][0] + "<br>" + "+" + clickvalue);
+    updateText(clickcosttext, text[language][1] + clickcost);
+    updateText(passiveupgrade, text[language][2] + "<br>" + "+" + passivevalue);
+    updateText(passivecosttext, text[language][1] + passivecost);
+}
+
 
 
 //RUNTIME
+
+//caso não tenha um idioma selecionado, seleciona inglês
+if (language == null) {
+    language = 0;
+}
 
 //adiciona eventos aos botões
 main.addEventListener("click", () => { click() });
 clickupgrade.addEventListener("click", () => { upgradeClick() });
 passiveupgrade.addEventListener("click", () => { upgradePassive() });
+
+//atualiza os textos pra ficar compatível com as variaveis do local storage
+updateText(main, totalscore);
+updateText(passivecosttext, text[language][1] + passivecost);
+updateText(passiveupgrade, text[language][2] + "<br>" + "+" + passivevalue);
+updateText(clickcosttext, text[language][1] + clickcost);
+updateText(clickupgrade, text[language][0] + "<br>" + "+" + clickvalue);
 
 //aciona os intervalos
 setInterval("timer()", 1000);

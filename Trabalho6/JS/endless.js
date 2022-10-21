@@ -17,7 +17,12 @@ let ascensionspawned;
 let gnomespawned;
 let forcespawn;
 
+//intervalos
+let ascensionspawninterval;
+let gnomespawninterval;
+
 //elementos HTML
+const languagebutton = document.getElementById("languageButton");
 const passivecosttext = document.getElementById("passiveCost");
 const passiveupgrade = document.getElementById("passiveUp");
 const clickcosttext = document.getElementById("clickCost");
@@ -25,18 +30,18 @@ const clickupgrade = document.getElementById("clickUp");
 const timertext = document.getElementById("timerText");
 const main = document.getElementById("mainButton");
 let ascensionbutton;
+let ascensiontext;
 let gnomebutton;
 let gnome;
 
-//audio
+//audios
 const clickerrorsound = new Audio("SFX/clickerror.mp3");
 const ascensionsound = new Audio("SFX/ascension.mp3");
 const clicksound = new Audio("SFX/click.mp3");
 const gnomed = new Audio("SFX/gnomed.mp3");
 
-//intervalos
-let ascensionspawninterval;
-let gnomespawninterval;
+//textos
+text = [["Upgrade Click", "Cost: ", "Upgrade Income", "Gamble with Gnome", "Cost: EVERYTHING", "Ascend"] , ["Melhorar Clique", "Custo: ", "Melhorar Renda", "Apostar com Gnomo", "Custo: TUDO", "Ascender"]]
 
 
 //RETORNAR VARIÁVEIS DO CACHE
@@ -76,6 +81,12 @@ if (!localStorage.getItem("timersec")) {
     timersec = 0;
 } else {
     timersec = parseInt(localStorage.getItem("timersec"))
+}
+
+if (!localStorage.getItem("language")) {
+    language = 0;
+} else {
+    language = parseInt(localStorage.getItem("language"))
 }
 
 //custos
@@ -167,11 +178,11 @@ function upgradeClick() {
     if (totalscore >= clickcost) {
         clicksound.play();
         totalscore -= clickcost;
-        clickcost = Math.ceil(clickcost * 1.181);
+        clickcost = Math.ceil(clickcost * 1.261);
         clickvalue = Math.ceil(clickvalue * 1.089 * ascensionbonus);
         updateText(main, totalscore);
-        updateText(clickupgrade, "Upgrade Click" + "<br>" + "+" + clickvalue);
-        updateText(clickcosttext, "Cost: " + clickcost);
+        updateText(clickupgrade, text[language][0] + "<br>" + "+" + clickvalue);
+        updateText(clickcosttext, text[language][1] + clickcost);
 
         localStorage.setItem("clickcost", clickcost);
         localStorage.setItem("clickvalue", clickvalue);
@@ -185,21 +196,21 @@ function upgradePassive() {
         clicksound.play();
         if (passivevalue == 0) {
             totalscore -= passivecost;
-            passivecost = Math.ceil(passivecost * 1.2);
+            passivecost = Math.ceil(passivecost * 1.227);
             passivevalue = Math.ceil(1 * ascensionbonus);
             updateText(main, totalscore);
-            updateText(passiveupgrade, "Upgrade Income" + "<br>" + "+" + passivevalue);
-            updateText(passivecosttext, "Cost: " + passivecost);
+            updateText(passiveupgrade, text[language][2] + "<br>" + "+" + passivevalue);
+            updateText(passivecosttext, text[language][1] + passivecost);
 
             localStorage.setItem("passivecost", passivecost);
             localStorage.setItem("passivevalue", passivevalue);
         } else {
             totalscore -= passivecost;
-            passivecost = Math.ceil(passivecost * 1.2);
+            passivecost = Math.ceil(passivecost * 1.227);
             passivevalue = Math.ceil(passivevalue * 1.142 * ascensionbonus);
             updateText(main, totalscore);
-            updateText(passiveupgrade, "Upgrade Income" + "<br>" + "+" + passivevalue);
-            updateText(passivecosttext, "Cost: " + passivecost);
+            updateText(passiveupgrade, text[language][2] + "<br>" + "+" + passivevalue);
+            updateText(passivecosttext, text[language][1] + passivecost);
 
             localStorage.setItem("passivecost", passivecost);
             localStorage.setItem("passivevalue", passivevalue);
@@ -227,7 +238,8 @@ function gnomeClick() {
 
     document.getElementById("gnome").remove();
     const gnometext = document.createElement("p")
-    gnometext.innerText = "⠀⠀⠀⠀⠀⠀";
+    gnometext.innerText = ".";
+    gnometext.style.color = "black";
     newsubpanel.appendChild(gnometext);
 
     gnomebutton = document.createElement("button");
@@ -235,7 +247,7 @@ function gnomeClick() {
     newsubpanel.appendChild(gnomebutton);
     gnomebutton.addEventListener("click", () => { gnomeButtonClick() });
 
-    setInterval("updateText(gnomebutton, 'Gamble with Gnome' + '<br>' + '±' + Math.ceil(totalscore/3))", 16.66);
+    setInterval("updateText(gnomebutton, text[language][3] + '<br>' + '±' + Math.ceil(totalscore/3))", 16.66);
     localStorage.setItem("gnomespawned", true);
 }
 
@@ -273,10 +285,10 @@ function ascend() {
     localStorage.setItem("totalscore", totalscore);
 
     updateText(main, totalscore);
-    updateText(clickupgrade, "Upgrade Click" + "<br>" + "+" + clickvalue);
-    updateText(clickcosttext, "Cost: " + clickcost);
-    updateText(passiveupgrade, "Upgrade Income" + "<br>" + "+" + passivevalue);
-    updateText(passivecosttext, "Cost: " + passivecost);
+    updateText(clickupgrade, text[language][0] + "<br>" + "+" + clickvalue);
+    updateText(clickcosttext, text[language][1] + clickcost);
+    updateText(passiveupgrade, text[language][2] + "<br>" + "+" + passivevalue);
+    updateText(passivecosttext, text[language][1] + passivecost);
 
     document.querySelector(".ascensionpanel").remove();
     ascensionspawninterval = setInterval("spawnAscension()", 1000);
@@ -293,8 +305,8 @@ function spawnAscension () {
             newsubpanel.className = "subpanel crimsontext ascensionpanel";
             document.querySelector(".buttons").appendChild(newsubpanel);
 
-            const ascensiontext = document.createElement("p")
-            ascensiontext.innerText = "Cost: EVERYTHING."
+            ascensiontext = document.createElement("p")
+            ascensiontext.innerText = text[language][4];
             newsubpanel.appendChild(ascensiontext);
 
             ascensionbutton = document.createElement("button");
@@ -302,15 +314,38 @@ function spawnAscension () {
             newsubpanel.appendChild(ascensionbutton);
             ascensionbutton.addEventListener("click", () => { ascend() });
 
-            updateText(ascensionbutton, "Ascend");
+            updateText(ascensionbutton, text[language][5]);
             localStorage.setItem("ascensionspawned", true);
         }
+    }
+}
+
+function changeLanguage () {
+    language++
+    if (language >= languages.length) {
+        language = 0;
+    }
+    localStorage.setItem("language", language);
+
+    updateText(languagebutton, languages[language]);
+    updateText(clickupgrade, text[language][0] + "<br>" + "+" + clickvalue);
+    updateText(clickcosttext, text[language][1] + clickcost);
+    updateText(passiveupgrade, text[language][2] + "<br>" + "+" + passivevalue);
+    updateText(passivecosttext, text[language][1] + passivecost);
+    if (ascensionbutton != null) {
+        updateText(ascensiontext, text[language][4]);
+        updateText(ascensionbutton, text[language][5]);
     }
 }
 
 
 
 //RUNTIME
+
+//caso não tenha um idioma selecionado, seleciona inglês
+if (language == null) {
+    language = 0;
+}
 
 //adiciona eventos aos botões
 main.addEventListener("click", () => { click() });
@@ -319,10 +354,10 @@ passiveupgrade.addEventListener("click", () => { upgradePassive() });
 
 //atualiza os textos pra ficar compatível com as variaveis do local storage
 updateText(main, totalscore);
-updateText(passivecosttext, "Cost: " + passivecost);
-updateText(passiveupgrade, "Upgrade Income" + "<br>" + "+" + passivevalue);
-updateText(clickcosttext, "Cost: " + clickcost);
-updateText(clickupgrade, "Upgrade Click" + "<br>" + "+" + clickvalue);
+updateText(passivecosttext, text[language][1] + passivecost);
+updateText(passiveupgrade, text[language][2] + "<br>" + "+" + passivevalue);
+updateText(clickcosttext, text[language][1] + clickcost);
+updateText(clickupgrade, text[language][0] + "<br>" + "+" + clickvalue);
 
 if (timermin < 10) {
     if (timersec < 10) {
