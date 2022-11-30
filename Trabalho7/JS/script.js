@@ -13,7 +13,7 @@ const url = "api.genius.com/search?q=";
 //FUNÇÕES
 async function searchArtist () {
     try {
-        let result =  await fetch(url+artistsearch.innerText);
+        let result =  await fetch(url+artistsearch.value);
         let js = await result.json();
         console.log(js);
     } catch {
@@ -22,11 +22,23 @@ async function searchArtist () {
 }
 
 async function searchAlbum () {
-    console.log("procura album");
+    try {
+        let result =  await fetch(url+albumsearch.value);
+        let js = await result.json();
+        console.log(js);
+    } catch {
+        console.log(url+albumsearch.value);
+    }
 }
 
 async function searchSong () {
-    console.log("procura musica");
+    try {
+        let result =  await fetch(url+songsearch.value);
+        let js = await result.json();
+        console.log(js);
+    } catch {
+        console.log(url+songsearch.value);
+    }
 }
 
 //RUNTIME
