@@ -8,8 +8,8 @@ header {
     background-color: #fffc64;
     width: 100vw;
     height: 10vh;
-    margin-top: -1vh;
-    margin-left: -1vh;
+    margin-top: -1.5vh;
+    margin-left: -1.5vh;
     display: flex;
     justify-content: center;
     text-shadow: -2pt 2pt 0pt rgb(0, 0, 0);
@@ -17,19 +17,18 @@ header {
 }
 
 header h1 {
-    margin-top: 1.5vh;
+    margin-top: 0.5vh;
 }
 
 main {
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: baseline;
 }
 
 input {
     height: 2vh;
-    width: 20vh;
-    font-size: 100%;
+    width: 40vh;
 }
 
 button {
@@ -40,14 +39,46 @@ button {
     background-color: white;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .searchsection {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
 }
 
+.searchsection p {
+    max-width: 40vh;
+    text-align: center;
+}
+
 @media only screen and (max-width:480px) {
     main {
         flex-flow: column wrap;
+    }
+
+    .searchsection {
+        align-self: center;
+    }
+
+    header h1 {
+        margin-top: 2vh;
+    }
+}
+
+@media only screen and (max-width:810px) {
+    main {
+        flex-flow: column wrap;
+    }
+
+    .searchsection {
+        align-self: center;
+    }
+
+    header h1 {
+        margin-top: 3vh;
     }
 }
