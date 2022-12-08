@@ -12,7 +12,7 @@ const albumsection = document.querySelector(".albumsection");
 const songsection = document.querySelector(".songsection");
 
 //MISC
-const url = "https://genius-song-lyrics1.p.rapidapi.com/";
+const url = "https://genius-song-lyrics1.p.rapidapi.com";
 const options = {
 	method: 'GET',
     headers: {
@@ -30,7 +30,7 @@ async function searchArtist () {
 
     if (artistsearch.value != "") {
         try {
-            let result = await fetch(url + "search/multi?q=" + artistsearch.value, options);
+            let result = await fetch(url + "/search/multi?q=" + artistsearch.value, options);
             let js = await result.json();
             let apipath = js.response.sections[3].hits[0].result.api_path
             let result2 = await fetch(url + apipath, options);
@@ -77,7 +77,7 @@ async function searchAlbum () {
 
     if (albumsearch.value != "") {
         try {
-            let result = await fetch(url + "search/multi?q=" + albumsearch.value, options);
+            let result = await fetch(url + "/search/multi?q=" + albumsearch.value, options);
             let js = await result.json();
             let apipath = js.response.sections[4].hits[0].result.api_path
             let result2 = await fetch(url + apipath, options);
@@ -130,9 +130,9 @@ async function searchSong () {
 
     if(songsearch.value != "") {
         try {
-            let result = await fetch(url + "search/multi?q=" + songsearch.value, options);
+            let result = await fetch(url + "/search/multi?q=" + songsearch.value, options);
             let js = await result.json();
-            let result2 = await fetch(url + "songs/" + js.response.sections[1].hits[0].result.id + "/lyrics", options);
+            let result2 = await fetch(url + "/songs/" + js.response.sections[1].hits[0].result.id + "/lyrics", options);
             let js2 = await result2.json();
 
             let songname = document.createElement("p");
